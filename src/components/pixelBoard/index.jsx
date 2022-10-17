@@ -3,9 +3,11 @@ import { Pixel } from '../pixel';
 
 import Prop from 'prop-types';
 
+import './style.css';
+
 export const PixelBoard = ({ handlePaintPixel, pixelLength }) => {
   // const pixels = 5;
-  
+
   const arrPixels = Array(pixelLength ** 2).fill();
 
   return (

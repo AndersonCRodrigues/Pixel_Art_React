@@ -6,6 +6,8 @@ import { PixelBoard } from "../components/pixelBoard";
 import { randomColor } from "../utils/randomColor";
 import { RandomColorBtn } from "../components/randomColorButton";
 import { PixelInputLength } from "../components/inputPixelLength";
+import { whiteColor } from "../utils/whiteColor";
+import { ClearBtn } from "../components/resetPixelBoardBtn";
 
 export class Home extends Component {
   state = {
@@ -27,6 +29,10 @@ export class Home extends Component {
     target.style.backgroundColor = this.state.savedColor;
   };
 
+  handlePixelLength = ({target}) => {
+    this.setState({pixelLength: target.value})
+  };
+
   handleRandomColor = () => {
     const { nPallets } = this.state;
     const arrColor = [];
@@ -36,9 +42,9 @@ export class Home extends Component {
     this.setState({ palletColors: arrColor });
   };
 
-  handlePixelLength = ({target}) => {
-    this.setState({pixelLength: target.value})
-  };
+  handleClearPixelBoard = () => {
+    whiteColor();
+  }
 
   render() {
     const { nPallets, palletColors, pixelLength } = this.state;
@@ -50,14 +56,20 @@ export class Home extends Component {
           nPallets={nPallets}
           palletColors={palletColors}
         />
-        <RandomColorBtn handleRandomColor={this.handleRandomColor}/>
-        <PixelInputLength
-          pixelLength={pixelLength}
-          handlePixelLength={this.handlePixelLength}/>
+        <section className="inputs">
+          <RandomColorBtn handleRandomColor={this.handleRandomColor}/>
+          <PixelInputLength
+            pixelLength={pixelLength}
+            handlePixelLength={this.handlePixelLength}/>
+        </section>
         <PixelBoard
           handlePaintPixel={this.handlePaintPixel}
           pixelLength={pixelLength}
         />
+        <section className="utilBoard">
+          <ClearBtn handleClearPixelBoard={this.handleClearPixelBoard} />
+          <span className="tamanho">Tamanho: {pixelLength}px por {pixelLength}px</span>
+        </section>
       </main>
     );
   }

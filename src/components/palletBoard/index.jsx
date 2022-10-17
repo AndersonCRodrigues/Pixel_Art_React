@@ -3,6 +3,8 @@ import { Pallet } from "../pallet";
 
 import Prop from 'prop-types';
 
+import './style.css';
+
 export class PalletBoard extends React.Component {
 
   render() {

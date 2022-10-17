@@ -9,26 +9,14 @@ main {
   background-color: rgb(235, 233, 233);
 }
 
-.boardPallet {
-  display: flex;
-  margin: 5px;
-}
-
-.pallet {
-  margin: 0 5px;
-}
-
-.randomBtn {
-  margin: 5px;
-}
-
-.pixelBoard {
-  margin: 5px;
+.inputs {
   width: 400px;
-  display: grid;
-  gap: 0px;
+  display: flex;
+  justify-content: space-around;
 }
 
-.pixel {
-  border: 0.1px  solid rgba(0, 0, 0, 0.5);
+.utilBoard {
+  width: 400px;
+  display: flex;
+  justify-content: space-between;
 }

@@ -2,6 +2,8 @@ import React from "react";
 
 import Prop from 'prop-types';
 
+import './style.css';
+
 export const Pixel = ({handlePaintPixel, pixels }) => {
   const pixelLength = 400 / pixels;
   return <div
