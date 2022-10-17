@@ -5,7 +5,7 @@ import './style.css';
 export const Header = () => {
   return (
     <header className="header">
-      <h1>Pixel Art</h1>
+      <div id="imagem"></div>
     </header>
   );
 };
