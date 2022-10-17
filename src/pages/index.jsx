@@ -10,6 +10,8 @@ import { whiteColor } from "../utils/whiteColor";
 import { ClearBtn } from "../components/resetPixelBoardBtn";
 import { Header } from "../components/header";
 import { Footer } from "../components/footer";
+import { saveLS } from "../components/saveLocalStorage";
+import { loadLS } from "../components/loadLocalStorage";
 
 export class Home extends Component {
   state = {
@@ -21,6 +23,7 @@ export class Home extends Component {
 
   componentDidMount() {
     this.handleRandomColor();
+    loadLS();
   }
 
   handleSelectColor = ({ target }) => {
@@ -29,15 +32,19 @@ export class Home extends Component {
 
   handlePaintPixel = ({ target }) => {
     target.style.backgroundColor = this.state.savedColor;
+    saveLS();
   };
 
   handlePixelLength = ({target}) => {
     this.setState({pixelLength: target.value})
+    saveLS();
   };
 
   handleRandomColor = () => {
     const { nPallets } = this.state;
     const arrColor = [];
+
+    saveLS();
 
     nPallets.forEach(() => arrColor.push(randomColor()));
 

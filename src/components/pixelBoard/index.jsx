@@ -11,7 +11,7 @@ export const PixelBoard = ({ handlePaintPixel, pixelLength }) => {
   const arrPixels = Array(pixelLength ** 2).fill();
 
   return (
-    <section className='pixelBoard'
+    <section className='boardPixel'
       style={{ gridTemplateColumns: `repeat(auto-fill, minmax(${400 / pixelLength}px, 1fr))`}}>
       {arrPixels.map((_,index) => <Pixel
       key={`pixel${index}`}
