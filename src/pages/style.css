@@ -11,22 +11,24 @@ main {
 
 .boardPallet {
   display: flex;
-  margin: 50px;
+  margin: 5px;
 }
 
 .pallet {
+  margin: 0 5px;
+}
+
+.randomBtn {
   margin: 5px;
 }
 
 .pixelBoard {
+  margin: 5px;
   width: 400px;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
-  gap: 0px
+  gap: 0px;
 }
 
 .pixel {
-  width: 80px;
-  height: 80px;
-  border: .1px solid black;
+  border: 0.1px  solid rgba(0, 0, 0, 0.5);
 }

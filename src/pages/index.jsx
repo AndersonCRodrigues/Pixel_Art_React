@@ -2,14 +2,16 @@ import "./style.css";
 
 import React, { Component } from "react";
 import { PalletBoard } from "../components/palletBoard";
-import { PixelBoar } from "../components/pixelBoard";
+import { PixelBoard } from "../components/pixelBoard";
 import { randomColor } from "../utils/randomColor";
+import { RandomColorBtn } from "../components/randomColorButton";
 
 export class Home extends Component {
   state = {
     savedColor: "black",
     nPallets: Array(6).fill(),
     palletColors: [],
+    pixelLength: 5,
   };
 
   componentDidMount() {
@@ -17,12 +19,10 @@ export class Home extends Component {
   }
 
   handleSelectColor = ({ target }) => {
-    this.setState({ savedColor: target.style.backgroundColor }
-      ,console.log(this.state.savedColor));
+    this.setState({ savedColor: target.style.backgroundColor });
   };
 
   handlePaintPixel = ({ target }) => {
-    console.log(this.state.savedColor);
     target.style.backgroundColor = this.state.savedColor;
   };
 
@@ -36,7 +36,7 @@ export class Home extends Component {
   };
 
   render() {
-    const { nPallets, palletColors } = this.state;
+    const { nPallets, palletColors, pixelLength } = this.state;
     return (
       <main>
         <h1>Header</h1>
@@ -45,8 +45,10 @@ export class Home extends Component {
           nPallets={nPallets}
           palletColors={palletColors}
         />
-        <PixelBoar
+        <RandomColorBtn handleRandomColor={this.handleRandomColor}/>
+        <PixelBoard
           handlePaintPixel={this.handlePaintPixel}
+          pixelLength={pixelLength}
         />
       </main>
     );
