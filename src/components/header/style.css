@@ -1,0 +1,10 @@
+.header {
+  margin: 10px;
+  text-align: center;
+  font-size: 3em;
+  color: blueviolet;
+}
+
+.header h1 {
+  text-shadow: 1px 1px 5px black;
+}

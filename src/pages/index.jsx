@@ -8,6 +8,7 @@ import { RandomColorBtn } from "../components/randomColorButton";
 import { PixelInputLength } from "../components/inputPixelLength";
 import { whiteColor } from "../utils/whiteColor";
 import { ClearBtn } from "../components/resetPixelBoardBtn";
+import { Header } from "../components/header";
 
 export class Home extends Component {
   state = {
@@ -49,30 +50,32 @@ export class Home extends Component {
   render() {
     const { nPallets, palletColors, pixelLength } = this.state;
     return (
-      <main>
-        <h1>Header</h1>
-        <div className="board">
-          <PalletBoard
-            handleSelectColor={this.handleSelectColor}
-            nPallets={nPallets}
-            palletColors={palletColors}
-          />
-          <section className="inputs">
-            <RandomColorBtn handleRandomColor={this.handleRandomColor}/>
-            <PixelInputLength
+      <>
+        <main>
+        <Header/>
+          <div className="board">
+            <PalletBoard
+              handleSelectColor={this.handleSelectColor}
+              nPallets={nPallets}
+              palletColors={palletColors}
+            />
+            <section className="inputs">
+              <RandomColorBtn handleRandomColor={this.handleRandomColor}/>
+              <PixelInputLength
+                pixelLength={pixelLength}
+                handlePixelLength={this.handlePixelLength}/>
+            </section>
+            <PixelBoard
+              handlePaintPixel={this.handlePaintPixel}
               pixelLength={pixelLength}
-              handlePixelLength={this.handlePixelLength}/>
-          </section>
-          <PixelBoard
-            handlePaintPixel={this.handlePaintPixel}
-            pixelLength={pixelLength}
-          />
-          <section className="utilBoard">
-            <ClearBtn handleClearPixelBoard={this.handleClearPixelBoard} />
-            <span className="tamanho">Tamanho: {pixelLength}px por {pixelLength}px</span>
-          </section>
-        </div>
-      </main>
+            />
+            <section className="utilBoard">
+              <ClearBtn handleClearPixelBoard={this.handleClearPixelBoard} />
+              <span className="tamanho">Tamanho: {pixelLength}px por {pixelLength}px</span>
+            </section>
+          </div>
+        </main>
+      </>
     );
   }
 }
