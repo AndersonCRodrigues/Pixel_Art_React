@@ -9,6 +9,7 @@ import { PixelInputLength } from "../components/inputPixelLength";
 import { whiteColor } from "../utils/whiteColor";
 import { ClearBtn } from "../components/resetPixelBoardBtn";
 import { Header } from "../components/header";
+import { Footer } from "../components/footer";
 
 export class Home extends Component {
   state = {
@@ -75,6 +76,7 @@ export class Home extends Component {
             </section>
           </div>
         </main>
+        <Footer/>
       </>
     );
   }
