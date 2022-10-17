@@ -51,25 +51,27 @@ export class Home extends Component {
     return (
       <main>
         <h1>Header</h1>
-        <PalletBoard
-          handleSelectColor={this.handleSelectColor}
-          nPallets={nPallets}
-          palletColors={palletColors}
-        />
-        <section className="inputs">
-          <RandomColorBtn handleRandomColor={this.handleRandomColor}/>
-          <PixelInputLength
+        <div className="board">
+          <PalletBoard
+            handleSelectColor={this.handleSelectColor}
+            nPallets={nPallets}
+            palletColors={palletColors}
+          />
+          <section className="inputs">
+            <RandomColorBtn handleRandomColor={this.handleRandomColor}/>
+            <PixelInputLength
+              pixelLength={pixelLength}
+              handlePixelLength={this.handlePixelLength}/>
+          </section>
+          <PixelBoard
+            handlePaintPixel={this.handlePaintPixel}
             pixelLength={pixelLength}
-            handlePixelLength={this.handlePixelLength}/>
-        </section>
-        <PixelBoard
-          handlePaintPixel={this.handlePaintPixel}
-          pixelLength={pixelLength}
-        />
-        <section className="utilBoard">
-          <ClearBtn handleClearPixelBoard={this.handleClearPixelBoard} />
-          <span className="tamanho">Tamanho: {pixelLength}px por {pixelLength}px</span>
-        </section>
+          />
+          <section className="utilBoard">
+            <ClearBtn handleClearPixelBoard={this.handleClearPixelBoard} />
+            <span className="tamanho">Tamanho: {pixelLength}px por {pixelLength}px</span>
+          </section>
+        </div>
       </main>
     );
   }
