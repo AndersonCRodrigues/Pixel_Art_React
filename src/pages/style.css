@@ -1,5 +1,4 @@
 main {
-  width: 1200px;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -7,6 +6,9 @@ main {
   align-items: center;
   margin: auto;
   background-color: rgb(235, 233, 233);
+  background-image: url('../images/pixel-fundo.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .inputs {
