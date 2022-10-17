@@ -5,6 +5,7 @@ import { PalletBoard } from "../components/palletBoard";
 import { PixelBoard } from "../components/pixelBoard";
 import { randomColor } from "../utils/randomColor";
 import { RandomColorBtn } from "../components/randomColorButton";
+import { PixelInputLength } from "../components/inputPixelLength";
 
 export class Home extends Component {
   state = {
@@ -35,6 +36,10 @@ export class Home extends Component {
     this.setState({ palletColors: arrColor });
   };
 
+  handlePixelLength = ({target}) => {
+    this.setState({pixelLength: target.value})
+  };
+
   render() {
     const { nPallets, palletColors, pixelLength } = this.state;
     return (
@@ -46,6 +51,9 @@ export class Home extends Component {
           palletColors={palletColors}
         />
         <RandomColorBtn handleRandomColor={this.handleRandomColor}/>
+        <PixelInputLength
+          pixelLength={pixelLength}
+          handlePixelLength={this.handlePixelLength}/>
         <PixelBoard
           handlePaintPixel={this.handlePaintPixel}
           pixelLength={pixelLength}
