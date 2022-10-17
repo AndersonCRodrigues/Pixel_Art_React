@@ -1,0 +1,32 @@
+main {
+  width: 1200px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  background-color: rgb(235, 233, 233);
+}
+
+.boardPallet {
+  display: flex;
+  margin: 50px;
+}
+
+.pallet {
+  margin: 5px;
+}
+
+.pixelBoard {
+  width: 400px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  gap: 0px
+}
+
+.pixel {
+  width: 80px;
+  height: 80px;
+  border: .1px solid black;
+}
