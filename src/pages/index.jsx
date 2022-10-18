@@ -24,8 +24,8 @@ export class Home extends Component {
   componentDidMount() {
     this.handleRandomColor();
 
-    this.setState((state) =>
-      ({palletColors: loadPalletColor() || state.palletColors}));
+    this.setState((prev) =>
+      ({palletColors: loadPalletColor() || prev.palletColors}));
 
     loadColors();
   }

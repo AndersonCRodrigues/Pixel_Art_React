@@ -1,16 +1,9 @@
 export const loadColors = () => {
   const pixels = document.querySelectorAll('.pixel');
 
-  if (localStorage.boardPixel){
-    const pixelColors = JSON.parse(localStorage.getItem('boardPixel'));
+  const pixelColors = JSON.parse(localStorage.getItem('boardPixel')) || 'white';
 
-    pixels.forEach((pixel, index) => pixel.style.backgroundColor = pixelColors[index]);
-  }
+  pixels.forEach((pixel, index) => pixel.style.backgroundColor = pixelColors[index]);
 };
 
-export const loadPalletColor = () => {
-  if (localStorage.boardPallet) {
-    return JSON.parse(localStorage.getItem('boardPallet'));
-  }
-  return null
-};
+export const loadPalletColor = () => JSON.parse(localStorage.getItem('boardPallet')) || null;
