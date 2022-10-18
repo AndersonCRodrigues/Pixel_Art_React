@@ -1,9 +1,16 @@
 export const loadColors = () => {
   const pixels = document.querySelectorAll('.pixel');
 
-  const pixelColors = JSON.parse(localStorage.getItem('boardPixel')) || 'white';
+  if (localStorage.boardPixel){
+    const pixelColors = JSON.parse(localStorage.getItem('boardPixel'));
 
-  pixels.forEach((pixel, index) => pixel.style.backgroundColor = pixelColors[index]);
+    pixels.forEach((pixel, index) => pixel.style.backgroundColor = pixelColors[index]);
+  }
 };
 
-export const loadPalletColor = () => JSON.parse(localStorage.getItem('boardPallet')) || null;
+export const loadPalletColor = () => {
+  if (localStorage.boardPallet) {
+    return JSON.parse(localStorage.getItem('boardPallet'));
+  }
+  return null
+};
