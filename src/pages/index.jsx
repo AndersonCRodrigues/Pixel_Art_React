@@ -11,7 +11,7 @@ import { ClearBtn } from "../components/resetPixelBoardBtn";
 import { Header } from "../components/header";
 import { Footer } from "../components/footer";
 import { saveColors, saveLength, savePalletColor } from "../components/saveLocalStorage";
-import { loadColors } from "../components/loadLocalStorage";
+import { loadColors, loadPalletColor } from "../components/loadLocalStorage";
 
 export class Home extends Component {
   state = {
@@ -24,9 +24,8 @@ export class Home extends Component {
   componentDidMount() {
     this.handleRandomColor();
 
-    if(localStorage.boardPallet) {
-      this.setState({ palletColors: JSON.parse(localStorage.getItem('boardPallet'))});
-    }
+    this.setState((state) =>
+      ({palletColors: loadPalletColor() || state.palletColors}));
 
     loadColors();
   }

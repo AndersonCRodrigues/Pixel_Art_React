@@ -7,3 +7,10 @@ export const loadColors = () => {
     pixels.forEach((pixel, index) => pixel.style.backgroundColor = pixelColors[index]);
   }
 };
+
+export const loadPalletColor = () => {
+  if (localStorage.boardPallet) {
+    return JSON.parse(localStorage.getItem('boardPallet'));
+  }
+  return null;
+};
