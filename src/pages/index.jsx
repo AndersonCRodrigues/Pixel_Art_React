@@ -10,7 +10,7 @@ import { whiteColor } from "../utils/whiteColor";
 import { ClearBtn } from "../components/resetPixelBoardBtn";
 import { Header } from "../components/header";
 import { Footer } from "../components/footer";
-import { saveColors, saveLength } from "../components/saveLocalStorage";
+import { saveColors, saveLength, savePalletColor } from "../components/saveLocalStorage";
 import { loadColors } from "../components/loadLocalStorage";
 
 export class Home extends Component {
@@ -23,11 +23,17 @@ export class Home extends Component {
 
   componentDidMount() {
     this.handleRandomColor();
+
+    if(localStorage.boardPallet) {
+      this.setState({ palletColors: JSON.parse(localStorage.getItem('boardPallet'))});
+    }
+
     loadColors();
   }
 
   componentDidUpdate() {
     saveLength(this.state.pixelLength);
+    savePalletColor(this.state.palletColors);
   }
 
   handleSelectColor = ({ target }) => {
