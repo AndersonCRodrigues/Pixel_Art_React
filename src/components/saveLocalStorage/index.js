@@ -1,7 +1,18 @@
-export const saveLS = () => {
-  const boardPallet = document.querySelector('.boardPallet').innerHTML;
-  const boardPixel = document.querySelector('.boardPixel').innerHTML;
+export const saveColors = () => {
+  const pallets = document.querySelectorAll('.colorPallet');
+  const pixels = document.querySelectorAll('.pixel');
 
-  localStorage.setItem('boardPallet', boardPallet);
-  localStorage.setItem('boardPixel', boardPixel);
+  const palletColor = [];
+  const pixelColor = [];
+
+  pallets.forEach(pallet => { palletColor.push(pallet.style.backgroundColor)});
+  pixels.forEach(pixel => { pixelColor.push(pixel.style.backgroundColor)});
+
+  localStorage.removeItem('boardPallet','boardPixel');
+  localStorage.setItem('boardPallet', JSON.stringify(palletColor));
+  localStorage.setItem('boardPixel', JSON.stringify(pixelColor));
+}
+
+export const saveLength = (pixelLength) => {
+  localStorage.setItem('pixelLength', JSON.stringify(pixelLength));
 }

@@ -10,20 +10,24 @@ import { whiteColor } from "../utils/whiteColor";
 import { ClearBtn } from "../components/resetPixelBoardBtn";
 import { Header } from "../components/header";
 import { Footer } from "../components/footer";
-import { saveLS } from "../components/saveLocalStorage";
-import { loadLS } from "../components/loadLocalStorage";
+import { saveColors, saveLength } from "../components/saveLocalStorage";
+import { loadColors } from "../components/loadLocalStorage";
 
 export class Home extends Component {
   state = {
     savedColor: "black",
     nPallets: Array(6).fill(),
     palletColors: [],
-    pixelLength: 5,
+    pixelLength: JSON.parse(localStorage.getItem('pixelLength')) || 5,
   };
 
   componentDidMount() {
     this.handleRandomColor();
-    loadLS();
+    loadColors();
+  }
+
+  componentDidUpdate() {
+    saveLength(this.state.pixelLength);
   }
 
   handleSelectColor = ({ target }) => {
@@ -32,19 +36,16 @@ export class Home extends Component {
 
   handlePaintPixel = ({ target }) => {
     target.style.backgroundColor = this.state.savedColor;
-    saveLS();
+    saveColors();
   };
 
   handlePixelLength = ({target}) => {
-    this.setState({pixelLength: target.value})
-    saveLS();
+    this.setState({pixelLength: parseInt(target.value)})
   };
 
   handleRandomColor = () => {
     const { nPallets } = this.state;
     const arrColor = [];
-
-    saveLS();
 
     nPallets.forEach(() => arrColor.push(randomColor()));
 
@@ -53,6 +54,7 @@ export class Home extends Component {
 
   handleClearPixelBoard = () => {
     whiteColor();
+    saveColors();
   }
 
   render() {
