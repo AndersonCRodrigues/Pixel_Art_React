@@ -6,11 +6,15 @@ import './style.css';
 
 export const Pixel = ({handlePaintPixel, pixels }) => {
   const pixelLength = 400 / pixels;
-  return <div
-  className="pixel"
-  style={{ backgroundColor: "white", width: pixelLength, height: pixelLength }}
-  onClick={handlePaintPixel}
-  ></div>;
+
+  return (
+    <div
+      className="pixel"
+      style={{ backgroundColor: "white", width: pixelLength, height: pixelLength }}
+      onClick={handlePaintPixel}
+    >
+    </div>
+  );
 };
 
 Pixel.propTypes = {

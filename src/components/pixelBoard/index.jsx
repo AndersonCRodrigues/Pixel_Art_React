@@ -13,10 +13,11 @@ export const PixelBoard = ({ handlePaintPixel, pixelLength }) => {
   return (
     <section className='boardPixel'
       style={{ gridTemplateColumns: `repeat(auto-fill, minmax(${400 / pixelLength}px, 1fr))`}}>
-      {arrPixels.map((_,index) => <Pixel
-      key={`pixel${index}`}
-      handlePaintPixel={handlePaintPixel}
-      pixels={pixelLength}
+      {arrPixels.map((_,index) =>
+      <Pixel
+        key={`pixel${index}`}
+        handlePaintPixel={handlePaintPixel}
+        pixels={pixelLength}
       />)}
     </section>
   );

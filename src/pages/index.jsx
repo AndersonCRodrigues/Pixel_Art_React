@@ -10,8 +10,8 @@ import { whiteColor } from "../utils/whiteColor";
 import { ClearBtn } from "../components/resetPixelBoardBtn";
 import { Header } from "../components/header";
 import { Footer } from "../components/footer";
-import { saveColors, saveLength, savePalletColor } from "../components/saveLocalStorage";
-import { loadColors, loadPalletColor } from "../components/loadLocalStorage";
+import { loadColors, loadPalletColor } from "../utils/loadLocalStorage";
+import { saveColors, saveLength, savePalletColor } from "../utils/saveLocalStorage";
 
 export class Home extends Component {
   state = {
